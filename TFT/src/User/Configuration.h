@@ -105,7 +105,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 /**
  * Default Touch Mode Language
@@ -206,9 +206,9 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 235
-#define Y_MAX_POS 235
-#define Z_MAX_POS 250
+#define X_MAX_POS 400
+#define Y_MAX_POS 400
+#define Z_MAX_POS 400
 
 // Specify a pause position as { X, Y, Z_raise }
 #define NOZZLE_PAUSE_RETRACT_LENGTH 15   // (mm)
@@ -353,10 +353,10 @@
  * Most suitable for Delta printers since most printers will crash into printed model when homing after powerloss.
  */
 // Home before power loss recovery
-#define HOME_BEFORE_PLR false   //to enabled: true | to disabled: false
+#define HOME_BEFORE_PLR true   //to enabled: true | to disabled: false
 
 // Backup power / UPS to move Z axis on power loss
-#define BTT_MINI_UPS    false   //to enabled: true | to disabled: false
+#define BTT_MINI_UPS    true   //to enabled: true | to disabled: false
 
 // (mm) Raise Z axis on resume (on power loss with UPS)
 #define POWER_LOSS_ZRAISE 10
