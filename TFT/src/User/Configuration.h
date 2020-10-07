@@ -169,7 +169,7 @@
 
 #define HOTEND_NUM   1    // set in 1~6
 #define EXTRUDER_NUM 1    // set in 1~6
-#define FAN_NUM      1    // set in 1~6
+#define FAN_NUM      3    // set in 1~6
 #define FAN_CTRL_NUM 0    // set in 1~2
 
 #define PREHEAT_LABELS   {"PLA", "PETG", "ABS", "WOOD", "TPU", "NYLON"}
