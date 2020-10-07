@@ -219,7 +219,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS 400
 #define Y_MAX_POS 400
-#define Z_MAX_POS 400
+#define Z_MAX_POS 380
 
 // Specify a pause position as { X, Y, Z_raise }
 #define NOZZLE_PAUSE_RETRACT_LENGTH 15   // (mm)
