@@ -214,13 +214,13 @@
 #define AXIS_DISPLAY_ID  {"X",  "Y",  "Z",   "E",  "E2"}
 
 // Default move speed mm/min
-#define DEFAULT_SPEED_MOVE   3000
+#define DEFAULT_SPEED_MOVE   1500
 #define SPEED_MOVE_SLOW      1000
 #define SPEED_MOVE_FAST      5000
 
 // Extrude speed mm/min
 #define EXTRUDE_SLOW_SPEED   60
-#define EXTRUDE_NORMAL_SPEED 600
+#define EXTRUDE_NORMAL_SPEED 300
 #define EXTRUDE_FAST_SPEED   1200
 
 // Size of machine
@@ -457,7 +457,7 @@
 #define POWER_LOSS_ZRAISE 10
 
 // Prevent extrusion if the temperature is below set temperature
-#define PREVENT_COLD_EXTRUSION_MINTEMP 175
+#define PREVENT_COLD_EXTRUSION_MINTEMP 180
 
 /**
  * Maximum hotend temperature of automatic shut down after printing.
