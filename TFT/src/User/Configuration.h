@@ -62,7 +62,7 @@
  *          6: MAGENTA,    7: YELLOW,      8: ORANGE,  9: PURPLE,   10: LIME,  11: BROWN,
  *         12: DARKBLUE,  13: DARKGREEN,  14: GRAY,   15: DARKGRAY
  */
-#define MARLIN_BKCOLOR 1
+#define MARLIN_BKCOLOR 4
 #define MARLIN_FNCOLOR 0
 
 /**
@@ -91,7 +91,7 @@
  *
  * Options:  0: Disabled    1: Enabled
  */
-#define SERIAL_ALWAYS_ON 1  // Default: 0 (Disabled)
+#define SERIAL_ALWAYS_ON 0  // Default: 0 (Disabled)
 
 //===========================================================================
 //========================== Touch Mode Settings ============================
