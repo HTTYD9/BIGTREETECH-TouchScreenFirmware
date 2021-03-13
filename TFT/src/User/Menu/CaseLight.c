@@ -17,7 +17,7 @@ void caseLightBrightnessReDraw()
   char tempstr[20];
   sprintf(tempstr, "  %d%%  ", caseLightGetBrightnessPercent());
   setLargeFont(true);
-  GUI_DispStringInPrect(&exhibitRect, (u8 *)tempstr);
+  GUI_DispStringInPrect(&exhibitRect, (uint8_t *)tempstr);
   setLargeFont(false);
 }
 
@@ -27,15 +27,17 @@ void menuCaseLight(void)
   MENUITEMS caseLightItems = {
     // title
     LABEL_CASE_LIGHT,
-    // icon                         label
-    {{ICON_DEC,                     LABEL_DEC},
-     {ICON_BACKGROUND,              LABEL_BACKGROUND},
-     {ICON_BACKGROUND,              LABEL_BACKGROUND},
-     {ICON_INC,                     LABEL_INC},
-     {ICON_RGB_WHITE,               LABEL_ON},
-     {ICON_BACKGROUND,              LABEL_BACKGROUND},
-     {ICON_BACKGROUND,              LABEL_BACKGROUND},
-     {ICON_BACK,                    LABEL_BACK},}
+    // icon                          label
+    {
+      {ICON_DEC,                     LABEL_DEC},
+      {ICON_BACKGROUND,              LABEL_BACKGROUND},
+      {ICON_BACKGROUND,              LABEL_BACKGROUND},
+      {ICON_INC,                     LABEL_INC},
+      {ICON_RGB_WHITE,               LABEL_ON},
+      {ICON_BACKGROUND,              LABEL_BACKGROUND},
+      {ICON_BACKGROUND,              LABEL_BACKGROUND},
+      {ICON_BACK,                    LABEL_BACK},
+    }
   };
 
   KEY_VALUES key_num = KEY_IDLE;
@@ -58,36 +60,36 @@ void menuCaseLight(void)
 
     switch (key_num)
     {
-    case KEY_ICON_0:
-      caseLightChangeBrightnessPrecent(-10);
-      caseLightBrightnessReDraw();
-      break;
+      case KEY_ICON_0:
+        caseLightChangeBrightnessPrecent(-10);
+        caseLightBrightnessReDraw();
+        break;
 
-    case KEY_ICON_3:
-      caseLightChangeBrightnessPrecent(10);
-      caseLightBrightnessReDraw();
-      break;
+      case KEY_ICON_3:
+        caseLightChangeBrightnessPrecent(10);
+        caseLightBrightnessReDraw();
+        break;
 
-    case KEY_ICON_4:
-      caseLightToggleState();
-      menuDrawPage(&caseLightItems);
-      caseLightBrightnessReDraw();
-      break;
+      case KEY_ICON_4:
+        caseLightToggleState();
+        menuDrawPage(&caseLightItems);
+        caseLightBrightnessReDraw();
+        break;
 
-    case KEY_ICON_7:
-      infoMenu.cur--;
-      break;
+      case KEY_ICON_7:
+        infoMenu.cur--;
+        break;
 
-    default:
-      #if LCD_ENCODER_SUPPORT
-        if (encoderPosition)
-        {
-          caseLightChangeBrightnessPrecent(encoderPosition);
-          caseLightBrightnessReDraw();
-          encoderPosition = 0;
-        }
-      #endif
-      break;
+      default:
+        #if LCD_ENCODER_SUPPORT
+          if (encoderPosition)
+          {
+            caseLightChangeBrightnessPrecent(encoderPosition);
+            caseLightBrightnessReDraw();
+            encoderPosition = 0;
+          }
+        #endif
+        break;
     }
 
     currentCaseLightState = caseLightGetState();
