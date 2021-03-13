@@ -5,7 +5,6 @@
 const char axis_id[TOTAL_AXIS] = {'X', 'Y', 'Z', 'E'};
 
 static COORDINATE targetPosition = {{0.0f, 0.0f, 0.0f, 0.0f}, 3000};
-
 static COORDINATE curPosition = {{0.0f, 0.0f, 0.0f, 0.0f}, 3000};
 
 /**
@@ -20,7 +19,7 @@ static bool relative_e = false;
 // false means current position is unknown
 // false after M18/M84 disable stepper or power up, true after G28
 static bool position_known = false;
-static bool queryWait = false;
+static bool coordinateQueryWait = false;
 
 bool coorGetRelative(void)
 {
@@ -52,11 +51,11 @@ void coordinateSetKnown(bool known)
   position_known = known;
 }
 
-void coordinateSetAxisTarget(AXIS axis,float position)
+void coordinateSetAxisTarget(AXIS axis, float position)
 {
   bool r = (axis == E_AXIS) ? relative_e || relative_mode : relative_mode;
 
-  if(r==false)
+  if (r == false)
   {
     targetPosition.axis[axis] = position;
   }
@@ -108,14 +107,13 @@ float coordinateGetAxisActual(AXIS axis)
 
 void coordinateQuerySetWait(bool wait)
 {
-  queryWait = wait;
+  coordinateQueryWait = wait;
 }
 
 void coordinateQuery(void)
 {
-  if (infoHost.connected == true && infoHost.wait == false && !queryWait)
-    {
-      storeCmd("M114\n");
-      queryWait = true;
-    }
+  if (infoHost.connected == true && infoHost.wait == false && !coordinateQueryWait)
+  {
+    coordinateQueryWait = storeCmd("M114\n");
   }
+}
